@@ -1,11 +1,8 @@
-// backend/src/api/routes.js
-
 const { Router } = require("express");
 const { generateReport } = require('../services/reportGenerator');
 
 const router = Router();
 
-// Type annotations removed from req and res for pure JavaScript
 router.get('/generate-report', async (req, res) => {
   const { session_id } = req.query;
 
@@ -26,6 +23,5 @@ router.get('/generate-report', async (req, res) => {
   }
 });
 
-// ... your other routes
 
 module.exports = router;
