@@ -112,7 +112,7 @@ Both the **frontend (React + Tailwind)** and **backend (Node.js + Express + Pupp
 *   Each record linked via `session_id`.
     
 
-### 🖥 Backend
+### Backend
 
 *   **Node.js + Express (JavaScript)**
     
