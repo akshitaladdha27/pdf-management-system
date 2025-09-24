@@ -103,7 +103,19 @@ Both the **frontend (React + Tailwind)** and **backend (Node.js + Express + Pupp
 
 * * *
 
-## 4\. Technical Implementation
+## 4\. How to Add a New Assessment Type
+
+1. To add a report for a new assessment, you simply add a new entry to the reportConfig object.
+
+2. Open the backend/src/config.js file.
+
+3. Add a new key to the reportConfig object. This key must match the assessment_id of the new assessment type.
+
+4. Define the reportTitle and a sections array for the new report.
+
+* * *
+
+## 5\. Technical Implementation
 
 ### Data Storage
 
