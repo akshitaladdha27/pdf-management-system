@@ -10,7 +10,12 @@ const JWT_SECRET = "your-super-secret-key-that-is-long-and-random";
 
 // --- 1. User Registration (Signup) ---
 router.post("/signup", async (req, res) => {
-  const { email, password } = req.body;
+  const { username, email, password } = req.body;
+
+  // --- Consolidated Validation Block ---
+  if (!username || !email || !password) {
+    return res.status(400).json({ message: "Username, email, and password are required." });
+  }
 
   // --- Validation Block ---
   if (!email || !password) {
@@ -43,7 +48,7 @@ router.post("/signup", async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
   
   // Create and "save" the new user to the array
-  const newUser = { id: users.length + 1, email, password: hashedPassword };
+  const newUser = { id: users.length + 1, username, email, password: hashedPassword };
   users.push(newUser);
 
   // Show the current user list in the terminal for debugging
@@ -70,7 +75,7 @@ router.post("/login", async (req, res) => {
 
   // Generate a JWT
   const token = jwt.sign(
-    { userId: user.id, email: user.email },
+    { userId: user.id, username: user.username, email: user.email },
     JWT_SECRET,
     { expiresIn: "1h" }
   );

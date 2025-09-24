@@ -49,7 +49,7 @@ export const Dashboard = () => {
         <button
           onClick={handleGenerateReport}
           disabled={isLoading}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-indigo-300 disabled:cursor-not-allowed"
+          className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-indigo-300 disabled:cursor-not-allowed"
         >
           {isLoading ? "Generating..." : "Generate Report"}
         </button>

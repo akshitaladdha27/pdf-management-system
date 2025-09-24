@@ -56,7 +56,7 @@ export const Login = () => {
           />
         </div>
         <div className="flex items-center justify-center">
-          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit">
+          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" type="submit">
             Sign In
           </button>
         </div>
