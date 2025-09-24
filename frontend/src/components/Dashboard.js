@@ -23,7 +23,6 @@ export const Dashboard = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      // Make the API call to your backend endpoint
       const response = await axios.get(
         `http://localhost:8000/api/reports/generate-report?session_id=${sessionId}`,
         config
