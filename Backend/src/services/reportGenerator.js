@@ -1,5 +1,3 @@
-// backend/src/services/reportGenerator.js
-
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
@@ -33,7 +31,7 @@ function getValueFromPath(data, fullPath) {
   }
   
   const finalValue = current ?? 'N/A';
-  // Attempt to format numeric values for cleaner output
+
   if (!isNaN(finalValue) && finalValue !== 'N/A') {
     return parseFloat(parseFloat(finalValue).toFixed(2));
   }
@@ -42,14 +40,12 @@ function getValueFromPath(data, fullPath) {
 }
 
 async function generateReport(sessionId) {
-  // 1. Find the data for the given session
   const sessionData = assessmentData.find(d => d.session_id === sessionId);
   if (!sessionData) {
     console.error("Session data not found!");
     return false;
   }
 
-  // 2. Determine the report type from the data
   const assessmentId = sessionData.assessment_id;
   const config = reportConfig[assessmentId];
   if (!config) {
@@ -57,7 +53,6 @@ async function generateReport(sessionId) {
     return false;
   }
 
-  // 3. Build the HTML string using the config and data
   const sectionsHtml = config.sections.map(section => `
     <h2>${section.title}</h2>
     <ul>
@@ -100,7 +95,7 @@ async function generateReport(sessionId) {
     await page.pdf({ path: pdfPath, format: 'A4', printBackground: true });
     await browser.close();
 
-    console.log(`✅ PDF generated successfully at ${pdfPath}`);
+    console.log(`PDF generated successfully at ${pdfPath}`);
     return true;
   } catch (error) {
     console.error("Error generating PDF:", error);
