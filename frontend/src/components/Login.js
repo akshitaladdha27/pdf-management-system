@@ -14,10 +14,8 @@ export const Login = () => {
         email,
         password,
       });
-      // On successful login, save the token
       localStorage.setItem('token', response.data.token);
       setMessage(response.data.message);
-      // You can redirect the user here, e.g., window.location.href = '/dashboard';
     } catch (error) {
       setMessage(error.response?.data?.message || 'An error occurred during login.');
     }
