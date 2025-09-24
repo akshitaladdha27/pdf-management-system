@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-// This secret key now EXACTLY matches the one in authRoutes.js
+
 const JWT_SECRET = "your-super-secret-key-that-is-long-and-random";
 
 const auth = (req, res, next) => {
